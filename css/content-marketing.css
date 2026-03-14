@@ -1,0 +1,292 @@
+/* ===================================================================
+ * AuraCircle - Minimal-Asset Editorial CONTENT Marketing
+ * ------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Nunito+Sans:300,400,400i,600,600i,700,700i');
+
+:root {
+    --accent-content: #bd2ac5;
+    --bg-dark: #000;
+    --text-muted: rgba(255, 255, 255, 0.4);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #fff;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+}
+
+.header-logo {
+    position: fixed !important;
+    top: 4rem !important; /* Explicitly safe distance */
+    left: 4rem !important;
+    z-index: 2000 !important; /* Higher z-index just in case */
+    height: 110px !important;
+    width: 110px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    background: transparent !important;
+    overflow: hidden !important;
+    transform: none !important; /* CRITICAL: Kills inherited -50% translation that causes clipping */
+    box-shadow: 0 0 20px rgba(189, 42, 197, 0.15);
+}
+
+.header-logo a.site-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+}
+
+.header-logo img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    transform: scale(1.9) translateY(0%) !important; /* Mathematically perfect centering */
+    object-fit: cover !important;
+    filter: none !important;
+    display: block !important;
+}
+
+/* Image Integration Slots */
+.media-slot {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin: 4rem auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: perspective(1000px) rotateX(2deg);
+    transition: transform 0.4s ease, border-color 0.3s;
+}
+
+.media-slot:hover {
+    transform: perspective(1000px) rotateX(0deg);
+    border-color: var(--accent-content);
+}
+
+.media-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.media-label {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+}
+
+/* 1. Typographic Hero */
+.minimal-hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-aura {
+    position: absolute;
+    width: 80vw;
+    height: 80vw;
+    background: radial-gradient(circle, rgba(189, 42, 197, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    animation: aura-pulse 10s infinite alternate ease-in-out;
+}
+
+@keyframes aura-pulse {
+    from { transform: scale(1) translate(-5%, -5%); opacity: 0.5; }
+    to { transform: scale(1.2) translate(5%, 5%); opacity: 0.8; }
+}
+
+.hero-title-group {
+    text-align: center;
+    z-index: 10;
+}
+
+.hero-title-main {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(5rem, 12vw, 15rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.aura-text-glow {
+    color: var(--accent-content);
+    text-shadow: 0 0 50px rgba(189, 42, 197, 0.4);
+}
+
+.hero-subtitle {
+    margin-top: 4rem;
+    font-size: 1.4rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+}
+
+/* 2. Mastery Sections (Image-less) */
+.typographic-mastery {
+    padding: 20vh 10vw;
+    background: #000;
+}
+
+.mastery-block {
+    display: grid;
+    grid-template-columns: 8rem 1.2fr 1.5fr; /* Wider gap for media */
+    gap: 6rem;
+    align-items: center;
+    margin-bottom: 30vh;
+    position: relative;
+}
+
+.mastery-block.reverse {
+    direction: rtl;
+}
+
+.mastery-block.reverse .mastery-content,
+.mastery-block.reverse .mastery-number {
+    direction: ltr;
+}
+
+.mastery-block.reverse .mastery-content {
+    text-align: right;
+}
+
+.mastery-number {
+    font-size: 6rem; /* Slightly smaller for balance */
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+}
+
+.mastery-media {
+    width: 100%;
+    height: 50vh;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%); /* Unique editorial clip */
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.mastery-block:hover .mastery-media {
+    transform: scale(1.02);
+    border-color: var(--accent-content);
+}
+
+.mastery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity 0.4s ease;
+}
+
+.mastery-block:hover .mastery-media img {
+    opacity: 1;
+}
+
+/* 3. CTA Refined */
+.minimal-cta {
+    padding-bottom: 20vh;
+    text-align: center;
+}
+
+.cta-inner h2 {
+    font-size: 4rem;
+    margin-bottom: 5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.8);
+}
+
+.cta-btn {
+    padding: 2rem 5rem;
+    border: 1px solid rgba(189, 42, 197, 0.3);
+    border-radius: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.cta-btn:hover {
+    border-color: var(--accent-content);
+    letter-spacing: 0.3em;
+}
+
+.cta-btn-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--accent-content);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.8,0,0.2,1);
+    z-index: -1;
+}
+
+.cta-btn:hover .cta-btn-bg {
+    transform: translateY(0);
+}
+
+/* Scroll Indicators */
+.home-content__scroll {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem 0;
+    border-left: 1px solid rgba(255,255,255,0.2);
+}
+
+.home-content__scroll a {
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    padding-left: 1rem;
+}
+
+@media (max-width: 768px) {
+    .mastery-block { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-title-main { font-size: 6rem; }
+}
+
+@media (max-width: 1024px) {
+    .minimal-roadmap { flex-direction: column; }
+    .hero-title-main { font-size: 12rem; }
+}

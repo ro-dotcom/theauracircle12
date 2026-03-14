@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Brand Aura - AuraCircle Case Study</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/project.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logoun.png">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+</head>
+
+<body class="project-page">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="loader" class="dots-jump">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="s-header">
+        <div class="header-logo">
+            <a href="index.html"><img src="images/unnamedrbg.png" alt="Homepage"></a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="project-hero__bg" style="background-image: url('images/Bunty/bunty-hero.jpg');"></div>
+        <div class="project-hero__content">
+            <span class="project-hero__subhead">Fine Quality Stationary</span>
+            <h1 class="project-hero__title reveal-text">Bunty</h1>
+        </div>
+    </section>
+
+    <!-- Project Story -->
+    <section class="project-section container">
+        <div class="story-grid">
+            <div class="project-info">
+                <h3 class="project-section__title">The Goal</h3>
+                <p style="color: #fff; font-size: 1.6rem; opacity: 0.8;">Redefining digital presence through organic
+                    aesthetics and strategic visual storytelling.</p>
+            </div>
+            <div class="story-text">
+                <h3 class="project-section__title">The Strategy</h3>
+                <h2>Nurturing the brand's aura across the digital landscape.</h2>
+                <p>We believe every brand has a unique energy—an 'aura'—that deserves to be shown. For Brand Aura, we
+                    crafted a visual identity that balances professional authority with organic, human-centric design.
+                    This case study explores how we translated abstract values into tangible digital growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="project-section container">
+        <h3 class="project-section__title">The Showcase</h3>
+        <div class="showcase-grid">
+            <div class="showcase-item" data-aos="fade-up">
+                <img src="images/Bunty/575244930_18054362450648550_3404164018493300112_n.jpg" alt="Bunty Project Image 1">
+            </div>
+            <div class="showcase-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="images/Bunty/582741804_18055643099648550_1574233227198924028_n.jpg" alt="Bunty Project Image 2">
+            </div>
+            <div class="showcase-item" data-aos="fade-up">
+                <img src="images/Bunty/591043039_18057283316648550_2090062060745219193_n.jpg" alt="Bunty Project Image 3">
+            </div>
+            <div class="showcase-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="images/Bunty/591769276_18058425986648550_55752484918404276_n.jpg" alt="Bunty Project Image 4">
+            </div>
+            <div class="showcase-item" data-aos="fade-up">
+                <img src="images/Bunty/597931388_18057900932648550_6272225734582347820_n.jpg" alt="Bunty Project Image 5">
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project Navigation -->
+    <footer class="container">
+        <nav class="project-nav">
+            <a href="index.html" class="nav-link">← Back to Home</a>
+            <a href="project-2.html" class="nav-link">Next Project: Digital Presence →</a>
+        </nav>
+    </footer>
+
+    <!-- Custom Cursor Elements -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring">
+        <span class="cursor-text"></span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Project Specific Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.to('.project-hero__title', {
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                ease: "power4.out",
+                delay: 0.5
+            });
+        });
+    </script>
+</body>
+
+</html>

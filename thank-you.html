@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You | Aura Circle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/events.css">
+
+    <!-- script -->
+    <script src="js/modernizr.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logoun.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logoun.png">
+
+    <style>
+        .thank-you-page {
+            background: #020202;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        #galaxy-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .success-glass {
+            position: relative;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 6rem 6rem;
+            border-radius: 60px;
+            text-align: center;
+            max-width: 800px;
+            box-shadow: 0 50px 120px rgba(0, 0, 0, 0.9),
+                inset 0 0 40px rgba(189, 42, 197, 0.05);
+            transform-style: preserve-3d;
+            perspective: 2000px;
+        }
+
+        .success-title {
+            font-weight: 900;
+            font-size: clamp(3rem, 7vw, 7rem);
+            text-transform: uppercase;
+            letter-spacing: clamp(0.5rem, 1.5vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            color: #fff;
+            white-space: nowrap;
+            background: linear-gradient(180deg, #fff 40%, rgba(255, 255, 255, 0.4) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .success-title .thin {
+            font-weight: 200;
+            font-size: 0.45em;
+            letter-spacing: 2rem;
+            text-transform: uppercase;
+            -webkit-text-fill-color: rgba(255, 255, 255, 0.7) !important;
+            margin-top: -0.5rem;
+        }
+
+        .success-title .char {
+            -webkit-text-fill-color: white;
+            /* Ensure individual characters are visible */
+        }
+
+        .success-desc {
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+        .success-desc strong {
+            color: #bd2ac5;
+            font-weight: 600;
+        }
+
+        .btn--elite {
+            background: #bd2ac5;
+            color: #fff !important;
+            padding: 2.5rem 6rem;
+            border-radius: 100px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            display: inline-block;
+            box-shadow: 0 15px 40px rgba(189, 42, 197, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.4rem;
+        }
+
+        .btn--elite:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(189, 42, 197, 0.6);
+            background: #d432dd;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .backdrop-heading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25vw;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: 5;
+            text-transform: uppercase;
+            pointer-events: none;
+            white-space: nowrap;
+            letter-spacing: -1rem;
+            user-select: none;
+            width: 100%;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 800px) {
+            .success-glass {
+                padding: 6rem 3rem;
+                margin: 0 2rem;
+                border-radius: 40px;
+            }
+
+            .success-title {
+                font-size: clamp(2rem, 8vw, 4rem);
+                letter-spacing: 0.5rem;
+            }
+
+            .success-desc {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Cinematic Noise Overlay */
+        .thank-you-page::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Ffilter id='noiseFilter'%3E%3FfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3F/filter%3E%3Frect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3F/svg%3E");
+            opacity: 0.04;
+            pointer-events: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+
+<body id="top" class="thank-you-page">
+
+    <!-- Background Effects -->
+    <div class="aura-orb orb-1"
+        style="background: radial-gradient(circle, rgba(189, 42, 197, 0.2) 0%, transparent 70%); width: 60vw; height: 60vw; position: absolute; border-radius: 50%; top: -10%; left: -10%; z-index: 2;">
+    </div>
+    <div class="aura-orb orb-2"
+        style="background: radial-gradient(circle, rgba(189, 42, 197, 0.1) 0%, transparent 70%); width: 50vw; height: 50vw; position: absolute; border-radius: 50%; bottom: -10%; right: -10%; z-index: 2;">
+    </div>
+    <div class="cursor-light"
+        style="position: fixed; top: 0; left: 0; width: 400px; height: 400px; background: radial-gradient(circle, rgba(189, 42, 197, 0.2) 0%, transparent 70%); border-radius: 50%; pointer-events: none; z-index: 3; transform: translate(-50%, -50%); opacity: 0; margin: 0;">
+    </div>
+
+    <canvas id="galaxy-canvas"></canvas>
+
+    <div class="backdrop-heading" style="z-index: 5;">THANKS</div>
+
+    <div class="success-glass">
+        <h1 class="success-title">Thank <span class="thin">YOU</span></h1>
+        <p class="success-desc">
+            Your vision has transcended boundaries and reached our creative aura. <br>
+            We appreciate you choosing <strong>Aura Circle</strong> to ignite your brand's presence. <br>
+            Our elite strategists are already weaving your future—expect a resonance soon.
+        </p>
+        <a href="index.html" class="btn--elite magnetic-btn">BAck To Home</a>
+    </div>
+
+    <!-- Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring">
+        <span class="cursor-text"></span>
+    </div>
+
+    <!-- Scripting -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Particle Galaxy System (Optimized)
+            const canvas = document.getElementById('galaxy-canvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function initParticles() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                particles = [];
+                for (let i = 0; i < 250; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        size: Math.random() * 1.5 + 0.1,
+                        speed: Math.random() * 0.15 + 0.05,
+                        opacity: Math.random() * 0.5 + 0.1,
+                        hue: Math.random() > 0.85 ? 280 : 0
+                    });
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.y -= p.speed;
+                    if (p.y < 0) p.y = canvas.height;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${p.hue}, 100%, 100%, ${p.opacity})`;
+                    ctx.fill();
+                });
+                requestAnimationFrame(animateParticles);
+            }
+
+            window.addEventListener('resize', initParticles);
+            initParticles();
+            animateParticles();
+
+            // 2. Elite Reveal Animations (Staggered Characters)
+            const title = document.querySelector('.success-title');
+
+            // Re-creating the branding to be robust
+            title.innerHTML = '';
+
+            const mainWrap = document.createElement('div');
+            mainWrap.style.display = 'block';
+            "THANK".split('').forEach(char => {
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.style.display = 'inline-block';
+                span.classList.add('char');
+                mainWrap.appendChild(span);
+            });
+            title.appendChild(mainWrap);
+
+            const thinWrap = document.createElement('div');
+            thinWrap.classList.add('thin');
+            "YOU".split('').forEach(char => {
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.style.display = 'inline-block';
+                span.classList.add('char');
+                thinWrap.appendChild(span);
+            });
+            title.appendChild(thinWrap);
+
+            const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
+
+            tl.set('.success-glass', { opacity: 0, y: 50, scale: 0.95 });
+            tl.set('.char', { opacity: 0, y: 100, rotateX: -90 });
+            tl.set('.success-desc', { opacity: 0, y: 20 });
+            tl.set('.btn--elite', { opacity: 0, scale: 0.8 });
+
+            tl.to('.success-glass', {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 2,
+                backdropFilter: "blur(40px)"
+            })
+                .to('.char', {
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                    stagger: 0.05,
+                    duration: 1.5
+                }, "-=1.2")
+                .to('.success-desc', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2
+                }, "-=0.8")
+                .to('.btn--elite', {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1,
+                    ease: "elastic.out(1, 0.5)"
+                }, "-=0.5");
+
+            // 3. Parallax Effects (Optimized Mouse)
+            const cursorLight = document.querySelector('.cursor-light');
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorRing = document.getElementById('cursor-ring');
+            
+            gsap.set(cursorLight, { xPercent: -50, yPercent: -50, opacity: 0 });
+            gsap.set([cursorDot, cursorRing], { opacity: 1 }); // Ensure visibility
+
+            window.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                
+                // Show cursor light on first move
+                gsap.to(cursorLight, { opacity: 1, duration: 1, overwrite: "auto" });
+
+                // Move orbs with snappier response (reduced from 2s to 0.8s)
+                const moveX = (clientX - window.innerWidth / 2) / 35;
+                const moveY = (clientY - window.innerHeight / 2) / 35;
+                
+                gsap.to('.orb-1', { x: moveX, y: moveY, duration: 1.2, ease: "power2.out", overwrite: "auto" });
+                gsap.to('.orb-2', { x: -moveX, y: -moveY, duration: 1.2, ease: "power2.out", overwrite: "auto" });
+                gsap.to('.backdrop-heading', { x: -moveX * 1.5, y: -moveY * 1.5, duration: 1.5, ease: "power3.out", overwrite: "auto" });
+                
+                // Cursor light follows mouse with zero drift (snappy tracking)
+                gsap.to(cursorLight, { x: clientX, y: clientY, duration: 0.2, ease: "power2.out", overwrite: "auto" });
+            });
+
+            // 4. Button Interaction & Custom Cursor Hover States
+            const eliteBtn = document.querySelector('.btn--elite');
+            
+            eliteBtn.addEventListener('mouseenter', () => {
+                gsap.to(cursorRing, { scale: 3, backgroundColor: 'rgba(189, 42, 197, 0.1)', borderColor: 'rgba(189, 42, 197, 0.5)', duration: 0.4 });
+                gsap.to(cursorDot, { scale: 0.5, backgroundColor: '#fff', duration: 0.4 });
+                gsap.to(cursorLight, { scale: 1.5, opacity: 0.4, duration: 0.6 });
+            });
+
+            eliteBtn.addEventListener('mouseleave', () => {
+                gsap.to(cursorRing, { scale: 1, backgroundColor: 'transparent', borderColor: 'rgba(255, 255, 255, 0.3)', duration: 0.4 });
+                gsap.to(cursorDot, { scale: 1, backgroundColor: '#bd2ac5', duration: 0.4 });
+                gsap.to(cursorLight, { scale: 1, opacity: 1, duration: 0.6 });
+            });
+
+            // 5. Floating Animation for Glass Card
+            gsap.to('.success-glass', {
+                y: "-=15",
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut"
+            });
+        });
+    </script>
+
+</body>
+
+</html>

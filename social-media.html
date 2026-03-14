@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Management | Aura Circle</title>
+<link rel="icon" type="image/png" sizes="32x32" href="images/logoun.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/logoun.png">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/main.css">
+
+<style>
+/* Scroll Progress */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg,#793ea5,#b16cea);
+    z-index: 9999;
+}
+
+/* Cards */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 3rem;
+    margin-top: 6rem;
+}
+
+.service-card {
+    background: rgba(255,255,255,0.05);
+    padding: 3rem;
+    border-radius: 12px;
+    transition: 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(121,62,165,0.3);
+}
+
+/* Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Form */
+.custom-form {
+    max-width: 600px;
+    margin: 5rem auto 0;
+}
+.custom-form input,
+.custom-form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #fff;
+}
+.custom-form textarea {
+    min-height: 150px;
+}
+</style>
+</head>
+
+<body>
+    <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/unnamedrbg.png" alt="Homepage">
+            </a>
+        </div>
+
+<div class="scroll-progress"></div>
+
+<section class="s-contact">
+
+<div class="row section-header">
+<div class="col-full">
+<h3 class="subhead">Social Media Management</h3>
+<h1 class="display-1">Aura Circle Website is currently in beta mode. Some content and features are still being refined.
+We appreciate your visit and look forward to sharing the complete experience with you soon🩷.</h1>
+</div>
+</div>
+
+<div class="row">
+<div class="col-full service-grid">
+
+<div class="service-card reveal">
+<h3>Platform Strategy</h3>
+<p>Custom growth strategy for Instagram, LinkedIn and emerging platforms.</p>
+</div>
+
+<div class="service-card reveal">
+<h3>Content Scheduling</h3>
+<p>Consistent calendar built for engagement and brand recall.</p>
+</div>
+
+<div class="service-card reveal">
+<h3>Analytics & Reporting</h3>
+<p>Data-driven insights to maximize performance.</p>
+</div>
+
+</div>
+</div>
+
+
+
+<section id="contact" class="s-contact">
+  <div class="row">
+        <div class="col-full">
+
+<form id="brandForm"
+      action="https://formspree.io/f/mzdvkqww"
+      method="POST">
+
+  <input type="hidden" name="service" value="SOcial Media">
+
+  <input type="text" name="_gotcha" style="display:none">
+
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+
+  <button type="submit" class="btn btn--primary btn--large">
+    Send Message
+  </button>
+
+</form>
+
+</div>
+</div>
+
+
+
+
+
+
+<!-- footer
+================================================== -->
+<footer class="s-footer">
+
+    <div class="row footer-main">
+
+        <!-- Brand Info -->
+        <div class="col-two tab-full footer-col">
+            <h4>AuraCircle</h4>
+            <div class="footer-member">
+                    <img src="images/unnamedrbg.png" alt="logo">
+                </div>
+        </div>
+
+        <!-- Our Links -->
+        <div class="col-two tab-full footer-col">
+            <h4>Our Links</h4>
+            <ul>
+                <li><a href="#home" class="smoothscroll">Home</a></li>
+                <li><a href="#about" class="smoothscroll">About Us</a></li>
+                <li><a href="#services" class="smoothscroll">Services</a></li>
+                <li><a href="#team" class="smoothscroll">Team</a></li>
+                <li><a href="#blog" class="smoothscroll">Blog</a></li>
+            </ul>
+        </div>
+
+        <!-- Our Services -->
+        <div class="col-two tab-full footer-col">
+            <h4>Our Services</h4>
+            <ul>
+                <li><a href="brand-identit.html">Brand Identity</a></li>
+                <li><a href="social-media.html">Social Media Management</a></li>
+                <li><a href="marketing.html">Marketing</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="content-creation.html">Content Creation</a></li>
+                <li><a href="influencer-collab.html">Influencer Collaboration</a></li>
+            </ul>
+        </div>
+
+        <!-- Leadership -->
+        <div class="col-three tab-full footer-col">
+            <h4>Leadership</h4>
+
+            <div class="footer-team">
+                <div class="footer-member">
+                    <img src="images/img.jpg" alt="CEO">
+                    <div>
+                        <h5>CEO Name</h5>
+                        <span>CEO</span>
+                    </div>
+                </div>
+
+                <div class="footer-member">
+                    <img src="images/img.jpg" alt="CMO">
+                    <div>
+                        <h5>CMO Name</h5>
+                        <span>CMO</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-three tab-full footer-col">
+            <h4>Contact Us</h4>
+            <ul>
+                <li>+91 8736451294</li>
+                <li>info@auracircle.com</li>
+                <li>Noida, India</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row footer-bottom">
+        <div class="col-full">
+            <p class="footer-copy">
+                © 2026 AuraCircle. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+
+</footer>
+
+
+</section>
+
+
+
+
+<script>
+/* Scroll Progress */
+window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    document.querySelector('.scroll-progress').style.width = progress + "%";
+});
+
+/* Reveal */
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.2 });
+
+reveals.forEach(r => observer.observe(r));
+</script>
+
+<script>
+const brandForm = document.getElementById("brandForm");
+
+if (brandForm) {
+  brandForm.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const data = new FormData(brandForm);
+      const button = brandForm.querySelector("button");
+
+      button.innerText = "Sending...";
+      button.disabled = true;
+
+      try {
+          const response = await fetch(brandForm.action, {
+              method: "POST",
+              body: data,
+              headers: { "Accept": "application/json" }
+          });
+
+          if (response.ok) {
+              window.location.href = "thank-you.html";
+          } else {
+              alert("Submission failed. Try again.");
+              button.innerText = "Send Message";
+              button.disabled = false;
+          }
+
+      } catch (error) {
+          alert("Error: " + error.message);
+          button.innerText = "Send Message";
+          button.disabled = false;
+      }
+  });
+}
+</script>
+</body>
+</html>

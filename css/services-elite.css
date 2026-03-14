@@ -1,0 +1,228 @@
+/* ===================================================================
+ * # Cohesive Service Design System (AuraCircle Refinement)
+ * ------------------------------------------------------------------- */
+
+:root {
+    --accent-content: #ff00ff;
+    --accent-influencer: #9d00ff;
+    --accent-event: #ffffff;
+    --bg-dark: #0a0a0a;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+body.elite-service-page {
+    background: var(--bg-dark);
+    color: #fff;
+    font-family: "Nunito Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Service Switcher - Minimalist Refinement */
+.service-switcher {
+    position: fixed;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 1000;
+}
+
+.switcher-item {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    text-decoration: none;
+}
+
+.switcher-item:hover,
+.switcher-item.active {
+    color: #fff;
+    border-color: var(--dynamic-accent);
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.switcher-item.active {
+    box-shadow: 0 0 20px var(--dynamic-accent-glow);
+}
+
+/* Kinetic Typography - Brand Split Style */
+.kinetic-header {
+    padding: 15rem 5% 5rem;
+    text-align: center;
+}
+
+.brand-split-title {
+    font-family: "Montserrat", sans-serif;
+    font-size: 10vw;
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: 500; /* Simpler weight */
+    margin-bottom: 2rem;
+}
+
+.brand-split-title .thin {
+    font-weight: 200;
+    font-style: italic;
+    color: var(--dynamic-accent);
+    letter-spacing: 0.2vw;
+}
+
+.lead-text {
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0;
+}
+
+/* Page Atmospheric Glows */
+.atm-glow {
+    position: fixed;
+    width: 80vw;
+    height: 80vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--dynamic-accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+}
+
+/* Case Study Content Layout */
+.refined-content-section {
+    padding: 10rem 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.editorial-frame {
+    position: relative;
+    width: 80%;
+    aspect-ratio: 16/9;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid var(--glass-border);
+    background: #111;
+}
+
+.editorial-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.frame-label {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--dynamic-accent);
+    text-transform: uppercase;
+}
+
+/* Grid System Overrides for Services */
+.services-grid-refined {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    margin-top: 10rem;
+}
+
+.service-feature-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 4rem;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+
+.service-feature-card:hover {
+    border-color: var(--dynamic-accent);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+/* Uniqueness: Studio Film Grain (Content Page) */
+.studio-film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/overlay-grain.png'); /* Fallback pattern if image missing */
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 5;
+    animation: grain-dance 8s steps(10) infinite;
+}
+
+@keyframes grain-dance {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -10%); }
+    30% { transform: translate(3%, -15%); }
+    50% { transform: translate(-10%, 10%); }
+    70% { transform: translate(15%, -5%); }
+    90% { transform: translate(-3%, 7%); }
+}
+
+/* Uniqueness: Creator Pulse nodes (Influencer Page) */
+.social-pulse-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.pulse-node {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--dynamic-accent);
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.2;
+    animation: pulse-aura 4s infinite alternate ease-in-out;
+}
+
+@keyframes pulse-aura {
+    0% { transform: scale(1); opacity: 0.1; }
+    100% { transform: scale(3); opacity: 0.3; }
+}
+
+/* Uniqueness: Dynamic Lens Flare (Event Page) */
+.immersive-light-leaks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 30%);
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: screen;
+    opacity: 0.5;
+}

@@ -1,0 +1,258 @@
+/* ===================================================================
+ * AuraCircle - Other Services CSS
+ * =================================================================== */
+
+.services-page {
+    background-color: #050505;
+    color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- Cinematic Noise --- */
+.services-page::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* --- Hero Section --- */
+.services-hero {
+    height: 60vh;
+    min-height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(circle at center, rgba(189, 42, 197, 0.15) 0%, transparent 70%);
+}
+
+.services-hero__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.services-hero__title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: clamp(3rem, 10vw, 10rem);
+    text-transform: uppercase;
+    letter-spacing: 1.5rem;
+    color: #ffffff;
+    background: linear-gradient(180deg, #ffffff 40%, rgba(255, 255, 255, 0.4) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 10px 60px rgba(189, 42, 197, 0.4);
+    margin-bottom: 2rem;
+    perspective: 1000px;
+}
+
+.services-hero__desc {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+    letter-spacing: 0.1rem;
+}
+
+/* --- Services Grid --- */
+.services-section {
+    padding: 10rem 0;
+    position: relative;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+    padding: 0 20px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 5rem 4rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                background 0.5s ease,
+                border-color 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    animation: floatingCard 6s ease-in-out infinite;
+    animation-delay: var(--delay);
+}
+
+@keyframes floatingCard {
+    0%, 100% { transform: translateY(0) rotateX(0); }
+    50% { transform: translateY(-15px) rotateX(2deg); }
+}
+
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(189, 42, 197, 0.4);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(189, 42, 197, 0.2);
+    animation-play-state: paused;
+}
+
+/* Holographic Scanline */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(189, 42, 197, 0.05),
+        rgba(189, 42, 197, 0.1),
+        rgba(189, 42, 197, 0.05),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+    animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% { top: -100%; }
+    100% { top: 100%; }
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(189, 42, 197, 0.1), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+}
+
+.service-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 2.5rem;
+    color: #bd2ac5;
+    transition: transform 0.5s;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-card h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1rem;
+}
+
+.service-card p {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+}
+
+/* --- Contact Section --- */
+.services-contact {
+    padding: 10rem 0;
+    background: linear-gradient(to bottom, transparent, rgba(189, 42, 197, 0.05));
+}
+
+.contact-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-form-glass {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 6rem;
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+}
+
+.contact-form-glass h2 {
+    color: #ffffff;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 768px) {
+    .services-hero {
+        height: 50vh;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-form-glass {
+        padding: 4rem 2rem;
+    }
+}
+
+/* --- Backdrop Heading Refinements --- */
+.services-page .backdrop-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.8;
+    z-index: -1; /* Ensure it stays behind everything including cards */
+}
+
+.services-page .backdrop-heading .thin {
+    font-weight: 200;
+    font-size: 0.4em; /* Smaller than main Aura text */
+    letter-spacing: 2rem;
+    text-transform: lowercase;
+    opacity: 0.8;
+    margin-top: -2rem;
+}
+
+/* Ensure backdrop doesn't block interactions on mobile */
+@media screen and (max-width: 768px) {
+    .services-page .backdrop-heading {
+        font-size: 40vw;
+        letter-spacing: 2rem;
+    }
+    .services-page .backdrop-heading .thin {
+        letter-spacing: 1rem;
+    }
+}

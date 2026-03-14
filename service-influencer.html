@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Social Influence | AuraCircle Human-Centric</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/services-elite.css">
+    <link rel="stylesheet" href="css/influencer-social.css">
+    <script src="js/modernizr.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logoun.png">
+</head>
+
+<body class="elite-service-page" id="top">
+
+    <!-- Cursor Elements -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"><span class="cursor-text"></span></div>
+
+    <!-- 1. Social-First Hero -->
+    <section class="social-hero">
+        <div class="social-hero__nodes"></div>
+        <div class="atm-glow" style="background: radial-gradient(circle, rgba(189, 42, 197, 0.1) 0%, transparent 70%);">
+        </div>
+        <header class="s-header" style="position: absolute; top: 0; background: transparent; z-index: 100;">
+            <div class="header-logo">
+                <a class="site-logo" href="index.html"><img src="images/unnamedrbg.png" alt="AuraCircle"></a>
+            </div>
+        </header>
+
+        <h1 class="social-hero__title" data-aos="fade-up">
+            SOCIAL<br><span class="pink-spotlight-text">INFLUENCE</span>
+        </h1>
+        <p class="social-hero__quote" data-aos="fade-up" data-aos-delay="200">
+            Authentic Connection • Strategic Impact
+        </p>
+        <div class="home-content__scroll" style="bottom: 5rem; border-color: rgba(255,255,255,0.3);">
+            <a href="#feed" class="scroll-link smoothscroll" style="color: #fff;">
+                Reveal the Feed
+            </a>
+        </div>
+    </section>
+
+    <!-- Global Switcher -->
+    <nav class="service-switcher">
+        <a href="service-content.html" class="switcher-item">
+            01
+            <span class="switcher-label">Content</span>
+        </a>
+        <a href="service-influencer.html" class="switcher-item active">
+            02
+            <span class="switcher-label">Influencer</span>
+        </a>
+        <a href="service-event.html" class="switcher-item">
+            03
+            <span class="switcher-label">Event</span>
+        </a>
+    </nav>
+
+    <main>
+        <!-- 2. Dynamic Feed Showcase (Masonry) -->
+        <section id="feed" class="social-feed">
+            <div class="masonry-grid">
+                <!-- Row 1 -->
+                <div class="masonry-item" data-aos="fade-up">
+                    <img src="images/Social-event/1.jpg" alt="Social Event 1">
+                </div>
+                <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/Social-event/4.jpg" alt="Social Event 4">
+                </div>
+                <div class="masonry-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/Social-event/2.jpg" alt="Social Event 2">
+                </div>
+
+                <!-- Row 2 -->
+                <div class="masonry-item" data-aos="fade-up">
+                    <img src="images/Social-event/5.jpg" alt="Social Event 5">
+                </div>
+                <div class="masonry-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/Social-event/3.jpg" alt="Social Event 3">
+                </div>
+                <div class="masonry-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/Social-event/6.jpg" alt="Social Event 6">
+                </div>
+
+                <!-- Row 3/Overflow -->
+                <div class="masonry-item" data-aos="fade-up">
+                    <img src="images/Social-event/7.jpg" alt="Social Event 7">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Collaborative Growth Section -->
+
+
+        <!-- 4. Trust Factor (Testimonial Slider) -->
+        <section class="trust-factor">
+            <div class="testimonial-container" data-aos="fade-up">
+                <div class="testimonial-slider">
+                    <div class="testimonial-slide">
+                        <p class="testimonial-quote">"AuraCircle didn't just find us influencers, they found us
+                            advocates. Our brand voice has never been so authentic."</p>
+                        <p class="testimonial-author">— Global Lifestyle Brand</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Get in Touch -->
+    <a href="index.html#contact" class="btn--floating-ripple smoothscroll">
+        Get in Touch
+        <div class="ripple-overlay"></div>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Hero Quote Drop-in
+            gsap.to(".social-hero__quote", {
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                delay: 0.8,
+                ease: "power4.out"
+            });
+
+            // 2. Profile Bubble Cursor Transformation (Robust)
+            const masonryItems = document.querySelectorAll(".masonry-item");
+            const cursorRing = document.getElementById('cursor-ring');
+            const cursorDot = document.getElementById('cursor-dot');
+
+            masonryItems.forEach(item => {
+                item.addEventListener("mouseenter", () => {
+                    if (cursorRing) {
+                        // Kill any ongoing animations to prevent flicker
+                        gsap.killTweensOf(cursorRing);
+                        gsap.to(cursorRing, {
+                            backgroundColor: 'rgba(189, 42, 197, 0.9)',
+                            scale: 1.8,
+                            borderColor: '#fff',
+                            borderWidth: 2,
+                            duration: 0.4,
+                            ease: "back.out(1.7)"
+                        });
+                        cursorRing.innerHTML = `
+                            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="white" style="transform: scale(1.2);">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>`;
+                    }
+                    if (cursorDot) gsap.to(cursorDot, { opacity: 0, scale: 0, duration: 0.2 });
+                    document.body.style.cursor = 'none'; // Ensure system cursor is hidden
+                });
+
+                item.addEventListener("mouseleave", () => {
+                    if (cursorRing) {
+                        gsap.killTweensOf(cursorRing);
+                        gsap.to(cursorRing, {
+                            backgroundColor: 'transparent',
+                            scale: 1,
+                            borderColor: '#bd2ac5', // Back to brand purple
+                            borderWidth: 1.5,
+                            duration: 0.4,
+                            ease: "power2.out"
+                        });
+                        cursorRing.innerHTML = '<span class="cursor-text"></span>';
+                    }
+                    if (cursorDot) gsap.to(cursorDot, { opacity: 1, scale: 1, duration: 0.2 });
+                });
+            });
+
+            // 3. Kinetic Scale-and-Fade List
+            gsap.from(".kinetic-item-fade", {
+                scale: 0.8,
+                opacity: 0,
+                stagger: 0.2,
+                duration: 1,
+                ease: "back.out(1.7)",
+                scrollTrigger: {
+                    trigger: ".kinetic-list",
+                    start: "top 85%"
+                }
+            });
+
+            // 4. Liquid Ripple Animation for Floating Button
+            const rippleBtn = document.querySelector(".btn--floating-ripple");
+            const rippleOverlay = rippleBtn.querySelector(".ripple-overlay");
+
+            if (rippleBtn && rippleOverlay) {
+                rippleBtn.addEventListener("mouseenter", () => {
+                    gsap.to(rippleOverlay, {
+                        width: "300%",
+                        height: "300%",
+                        duration: 0.8,
+                        ease: "power2.out"
+                    });
+                });
+
+                rippleBtn.addEventListener("mouseleave", () => {
+                    gsap.to(rippleOverlay, {
+                        width: "0%",
+                        height: "0%",
+                        duration: 0.5,
+                        ease: "power2.in"
+                    });
+                });
+            }
+
+            // 5. Counter Animation
+            document.querySelectorAll(".counter").forEach(counter => {
+                gsap.from(counter, {
+                    innerText: 0,
+                    duration: 2,
+                    snap: { innerText: 1 },
+                    scrollTrigger: {
+                        trigger: counter,
+                        start: "top 90%"
+                    }
+                });
+            });
+
+            if (typeof AOS !== 'undefined') AOS.init({ duration: 1200, once: true });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,392 @@
+/* ===================================================================
+ * AuraCircle - Immersive Event Experience Styles
+ * ------------------------------------------------------------------- */
+
+:root {
+    --accent-event: #E5E5E5; /* Metallic Silver */
+    --accent-event-glow: rgba(255, 255, 255, 0.15);
+    --font-heading: "Montserrat", sans-serif;
+    --font-body: "Nunito Sans", sans-serif;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 300;
+}
+
+.header-logo {
+    position: fixed !important;
+    top: 3rem !important;
+    left: 4rem !important;
+    transform: none !important;
+    z-index: 1001 !important;
+    height: 110px !important; /* Bigger size */
+    width: 110px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 50% !important;
+    overflow: hidden !important; /* Important for cropping out the yellow ring */
+}
+
+.header-logo, .site-logo {
+    clip-path: none !important;
+    background: transparent !important;
+}
+
+.header-logo img {
+    width: 100% !important;
+    height: 100% !important;
+    transform: scale(2.0) translateY(5%) !important; /* Aggressive zoom to hide the yellow ring */
+    object-fit: cover !important;
+    object-position: top !important;
+    filter: brightness(1.1) contrast(1.1) !important;
+    display: block !important;
+    border: none !important;
+}
+
+.header-logo:hover img {
+    transform: scale(2.1) translateY(5%) !important;
+}
+
+.service-switcher {
+    z-index: 1000 !important;
+}
+
+/* 1. Cinematic Hero */
+.event-hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.event-hero__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    filter: brightness(0.5) contrast(1.1);
+    object-fit: cover;
+}
+
+.event-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent, rgba(0,0,0,0.8));
+    z-index: 2;
+}
+
+.event-hero__grain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.12;
+    z-index: 3;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+.event-hero__title {
+    position: relative;
+    z-index: 4;
+    font-size: clamp(4rem, 12vw, 15rem); /* Slightly smaller/simpler */
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500; /* Simpler weight */
+    text-transform: uppercase;
+    color: #fff;
+    mix-blend-mode: normal; /* Cleaner look */
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 0.1rem;
+    padding: 0 2rem;
+}
+
+/* 2. Atmosphere Anthology - Vertical Flow */
+.atmosphere-anthology {
+    padding: 15rem 5vw 10rem;
+    background: #000;
+    overflow: hidden;
+}
+
+.anthology-intro {
+    text-align: center;
+    margin-bottom: 12rem;
+}
+
+.anthology-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1.5rem;
+    color: #fff;
+    margin: 0;
+}
+
+.anthology-heading .thin {
+    font-weight: 100;
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.heading-line {
+    width: 60px;
+    height: 1px;
+    background: var(--accent-event);
+    margin: 3rem auto 0;
+    opacity: 0.3;
+}
+
+.anthology-panel {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25rem;
+    position: relative;
+}
+
+.panel-number {
+    position: absolute;
+    top: -5rem;
+    left: 0;
+    font-family: var(--font-heading);
+    font-size: 12rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 1;
+    line-height: 1;
+}
+
+.anthology-panel.reversed .panel-number {
+    left: auto;
+    right: 0;
+}
+
+.panel-content {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
+    z-index: 2;
+}
+
+.panel-media {
+    grid-column: 2 / 7; /* Shifted and narrowed for vertical elegance */
+    position: relative;
+}
+
+.reversed .panel-media {
+    grid-column: 7 / 12;
+}
+
+.parallax-window {
+    width: 100%;
+    height: 90vh; /* Extremely tall portrait window */
+    border-radius: 4px;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+}
+
+.parallax-img {
+    width: 100%;
+    height: 115%; 
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1) brightness(0.8);
+    transition: filter 0.8s ease;
+}
+
+.anthology-panel:hover .parallax-img {
+    filter: grayscale(0%) contrast(1) brightness(1);
+}
+
+.panel-info {
+    grid-column: 8 / 13;
+    padding-left: 5vw;
+}
+
+.reversed .panel-info {
+    grid-column: 1 / 6;
+    padding-left: 0;
+    padding-right: 5vw;
+    text-align: right;
+}
+
+.panel-info h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 4vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0.5rem;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.panel-info p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 300;
+    max-width: 350px;
+}
+
+.reversed .panel-info p {
+    margin-left: auto;
+}
+
+/* --- Stats Ticker Refinement --- */
+.stats-ticker-container {
+    background: #000;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* 3. Interactive 'Live Moments' Grid */
+.moments-grid {
+    padding: 15rem 10vw; /* Increased side padding to narrow the grid */
+    background: #000;
+    transition: background-color 0.8s ease;
+}
+
+.grid-asymmetric {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: clamp(2rem, 5vw, 8rem); /* Vast spacing for elegance */
+}
+
+.moment-card {
+    position: relative;
+    overflow: hidden;
+    background: #111;
+    border-radius: 4px;
+}
+
+.moment-card:nth-child(1) { grid-column: 1 / 6; height: 800px; }
+.moment-card:nth-child(2) { grid-column: 7 / 13; height: 650px; margin-top: 200px; }
+.moment-card:nth-child(3) { grid-column: 2 / 7; height: 750px; margin-top: -150px; }
+.moment-card:nth-child(4) { grid-column: 8 / 13; height: 850px; }
+
+.moment-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.7);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.moment-card:hover img {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.08);
+}
+
+/* 4. Live Stats Ticker */
+.stats-ticker-container {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+.stats-ticker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-item {
+    font-size: clamp(3rem, 6vw, 6rem); /* Simpler size */
+    font-weight: 500; /* Consistent simplicity */
+    color: #1a1a1a;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: color 0.4s ease;
+}
+
+.stat-item.active {
+    color: var(--accent-event);
+}
+
+/* 5. Liquid Back to Top */
+.btn--back-to-top {
+    position: fixed;
+    bottom: 3rem;
+    right: 3rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.btn--back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.liquid-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #bd2ac5;
+    z-index: -1;
+    transition: height 0.4s ease;
+}
+
+.btn--back-to-top:hover .liquid-fill {
+    height: 100%;
+}
+
+.btn--back-to-top svg {
+    width: 20px;
+    transition: fill 0.3s ease;
+}
+
+.btn--back-to-top:hover svg {
+    fill: #000;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 1024px) {
+    .panel__image-wrapper { width: 70vw; height: 50vh; }
+    .moment-card:nth-child(1), .moment-card:nth-child(2), 
+    .moment-card:nth-child(3), .moment-card:nth-child(4) {
+        grid-column: 1 / 13;
+        height: 350px;
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .panel { flex-direction: column; text-align: center; }
+    .panel__text { position: relative; bottom: auto; right: auto; margin-top: 2rem; text-align: center; }
+    .panel__image-wrapper { width: 85vw; height: 40vh; }
+}

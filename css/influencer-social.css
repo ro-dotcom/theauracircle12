@@ -1,0 +1,230 @@
+/* ===================================================================
+ * AuraCircle - Human-Centric SOCIAL Influence Styles
+ * ------------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Nunito+Sans:300,400,400i,600,600i,700,700i');
+
+:root {
+    --accent-social: #bd2ac5;
+    --bg-dark: #050505;
+    --text-white: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.4);
+}
+
+
+.cursor-text {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fff;
+    font-weight: 700;
+}
+
+/* 1. Social-First Hero */
+.social-hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: #050505; /* Deep brand black for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #fff; /* White text for black background */
+}
+
+.social-hero__nodes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L40 40 M60 60 L90 90 M20 80 L80 20' stroke='%23333' stroke-width='0.5' fill='none'/%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23444'/%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23444'/%3E%3Ccircle cx='90' cy='90' r='1.5' fill='%23444'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.social-hero__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(5rem, 15vw, 15rem);
+    font-weight: 500; /* Simpler weight */
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 5;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(189, 42, 197, 0.3);
+}
+
+.pink-spotlight-text {
+    background: linear-gradient(90deg, #bd2ac5, #ff00ff, #bd2ac5);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: spotlight-move 3s linear infinite;
+}
+
+.social-hero__quote {
+    font-size: 2.2rem;
+    font-style: italic;
+    max-width: 700px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* 2. Dynamic Feed Showcase (Masonry) */
+.social-feed {
+    padding: 10rem 5vw;
+    background: #fff;
+}
+
+.masonry-grid {
+    column-count: 3;
+    column-gap: 3rem;
+    width: 100%;
+}
+
+.masonry-item {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 3rem;
+    background: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s ease;
+    cursor: none;
+}
+
+.masonry-item:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15);
+}
+
+.masonry-item img, .masonry-item video {
+    width: 100%;
+    height: auto !important; /* Allow natural orientation */
+    display: block !important;
+    object-fit: cover !important;
+    aspect-ratio: auto !important; /* Remove forced square */
+}
+
+/* 3. Collaborative Growth Section */
+.growth-section {
+    padding: 15rem 5vw;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.proof-tickers {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 10rem;
+}
+
+.proof-item {
+    padding: 2rem;
+}
+
+.proof-item h2 {
+    font-size: 6rem;
+    font-weight: 800;
+    color: var(--accent-social);
+    margin-bottom: 0;
+}
+
+.proof-item p {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: #888;
+}
+
+/* 4. Trust Factor (Testimonial Slider) */
+.trust-factor {
+    padding: 15rem 5vw;
+    background: var(--bg-light);
+    position: relative;
+}
+
+.testimonial-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+    border: 1px solid rgba(255,255,255,0.5);
+    text-align: center;
+}
+
+.testimonial-quote {
+    font-size: 2.8rem;
+    font-style: italic;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: var(--accent-social);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* 5. Liquid Get in Touch Button */
+.btn--floating-ripple {
+    position: fixed;
+    bottom: 4rem;
+    left: 4rem;
+    padding: 2rem 4rem;
+    background: var(--accent-social);
+    color: #fff;
+    border-radius: 5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    z-index: 100;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(189, 42, 197, 0.4);
+}
+
+.ripple-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Animations */
+@keyframes spotlight-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 1024px) {
+    .masonry-grid { column-count: 2; }
+}
+
+@media (max-width: 768px) {
+    .masonry-grid { column-count: 1; }
+    .proof-tickers { flex-direction: column; }
+    .social-hero__title { font-size: 8rem; }
+}
